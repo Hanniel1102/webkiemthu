@@ -1,0 +1,547 @@
+<html>
+<head>
+    <title>Trang cá nhân</title>
+    <style>
+        /* General Reset and Layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #242020;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        /* Wrapper for aside and article */
+        .container {
+            display: flex; /* Use flexbox for layout */
+            margin-top: 8%;
+            height: 82%;
+        }
+
+        /* Sidebar (Aside) */
+        aside {
+            width: 250px;
+            background-color: #2c3e50;
+            color: white;
+            padding-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            padding-left: 20px;
+            padding-bottom: 20px;
+            height: auto;
+            border-right: 2px solid #34495e;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        aside .menu-item {
+            padding: 15px;
+            cursor: pointer;
+            border-bottom: 1px solid #34495e;
+            background-color: #2c3e50;
+        }
+
+        aside .menu-item:hover {
+            background-color: #34495e;
+        }
+
+        aside .active {
+            background-color: #708796;
+        }
+
+        /* Modal Style */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 100px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 60%;
+            height: auto;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Main Content (Article) */
+        article {
+            flex-grow: 1; /* Make article take the remaining space */
+            padding: 20px;
+            background: white;
+            color: black;
+            font-family: SFU Futura Book, futura-pt, -apple-system, blinkmacsystemfont, Segoe UI, roboto, Helvetica Neue, arial, sans-serif;
+        }
+
+        /* Tab Navigation */
+        .tab {
+            cursor: pointer;
+            padding: 10px 20px;
+            margin-right: 20px;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-weight: bold;
+            background-color: #ecf0f1;
+            color: black;
+            font-size: 30;
+        }
+
+        .tab:hover {
+            background-color: #bdc3c7;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+
+        .active-tab {
+            display: block;
+            justify-content: center; /* Căn giữa theo chiều ngang */
+            align-items: center; /* Căn giữa theo chiều dọc */
+        }
+
+        h2 {
+            margin-top: 0;
+            font-size: 30;
+        }
+
+        .size {
+            font-size: 20;
+        }
+
+        /* Input Fields and Submit Button */
+        .inp {
+            border-radius: 5px;
+            height: 40px;
+            width: 250px;
+            padding-left: 10px;
+        }
+
+        .submit {
+            color: black;
+            background-color: white;
+            border-radius: 5px;
+            width: 200;
+            height: 50px;
+            margin-top: 20px;
+            font-size: 16;
+        }
+
+        .submit:hover {
+            background-color: black;
+            color: white;
+        }
+
+        .eye-icon {
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(26, 20, 20, 0.816);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 20px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<link href="css_louisa.css" rel="stylesheet">
+
+<body>
+    <header>
+        <marquee width="100%" behavior="alternate"><span style="color: white;text-decoration: none;font-family:Times New Roman">Thời trang cao cấp cho mọi lứa tuổi</span></marquee>
+    </header>
+
+    <!-- Navigation (Nav Menu) -->
+    <nav>
+        <div>
+            <a href="louisa.html" style="text-decoration: none;font-size: 35px;margin-right:70% ;font-weight: bolder;color:black">LOUISA</a>
+            <span>
+                <a href="" class="nav1">Tìm cửa hàng</a>
+            </span>
+            <span><a href="louisa.html" class="dx">Đăng xuất</a></span>
+            <div class="hmenu-wrapper">
+                <ul class="hmenu">
+                    <li><a href="#">QUẦN ÁO</a>
+                        <ul class="vmenu">
+                            <li><a href="quần áo đi tiệc.html">Quần áo đi tiệc</a></li>
+                            <li><a href="#">Quần áo trẻ em</a></li>
+                            <li><a href="#">Quần áo ở nhà</a></li>
+                            <li><a href="#">Quần áo đông</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">NƯỚC HOA</a>
+                        <ul class="vmenu">
+                            <li><a href="nước hoa Dior.html">Nước hoa Dior</a></li>
+                            <li><a href="#">Nước hoa Gucci</a></li>
+                            <li><a href="#">Nước hoa Louisa</a></li>
+                            <li><a href="#">Nước hoa tự nhiên</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">GIÀY</a>
+                        <ul class="vmenu">
+                            <li><a href="giày Sandals.html">Giày Sandals</a></li>
+                            <li><a href="giày cao gót.html">Giày cao gót</a></li>
+                            <li><a href="#">Giày búp bê</a></li>
+                            <li><a href="#">Giày trẻ em</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">TÚI</a>
+                        <ul class="vmenu">
+                            <li><a href="#">Túi đeo vai</a></li>
+                            <li><a href="túi xách.html">Túi xách</a></li>
+                            <li><a href="#">Túi tote</a></li>
+                            <li><a href="#">Túi đeo chéo</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">VÍ</a>
+                        <ul class="vmenu">
+                            <li><a href="túi ví nhỏ.html">Túi ví nhỏ</a></li>
+                            <li><a href="#">Ví đựng thẻ</a></li>
+                            <li><a href="#">Ví dài</a></li>
+                            <li><a href="#">Ví nhỏ cầm tay</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">KÍNH MẮT</a>
+                        <ul class="vmenu">
+                            <li><a href="kính mắt gọng mèo.html">Kính mắt gọng mèo</a></li>
+                            <li><a href="#">Kính mắt gọng vuông</a></li>
+                            <li><a href="#">Kính mắt gọng tròn</a></li>
+                            <li><a href="#">Kính mắt gọng cánh bướm</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">TRANG SỨC</a>
+                        <ul class="vmenu">
+                            <li><a href="#">Khuyên tai</a></li>
+                            <li><a href="nhẫn.html">Nhẫn</a></li>
+                            <li><a href="#">Dây chuyền</a></li>
+                            <li><a href="#">Vòng tay</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Wrapper for Sidebar and Main Content -->
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside>
+            <div class="menu-item active" onclick="showTab('thongtin')">Thông tin cá nhân</div>
+            <div class="menu-item" onclick="showTab('doimatkhau')">Đổi mật khẩu</div>
+        </aside>
+
+        <!-- Main Content -->
+        <article>
+            <!-- Tab Content for Personal Information -->
+            <div id="thongtin" class="tab-content active-tab">
+                <h2>Thông tin cá nhân của tôi</h2>
+                <form id="personal-info-form">
+                    <label for="first-name" class="size">Họ:</label>
+                    <input id="first-name" class="inp" type="text" placeholder="*">
+                    <label for="last-name" class="size">Tên:</label>
+                    <input id="last-name" class="inp" type="text" placeholder="*">
+                    <br><br>
+                    <label for="dob" class="size">Ngày sinh:</label>
+                    <input id="dob" class="inp" type="date">
+                    <label for="gender" class="size">Giới tính:</label>
+                    <select id="gender" class="inp">
+                        <option value="male">Nam</option>
+                        <option value="female">Nữ</option>
+                        <option value="other">Khác</option>
+                    </select>
+                    <br><br>
+                    <label for="address" class="size">Địa chỉ:</label>
+                    <input id="address" class="inp" type="text" placeholder="Địa chỉ">
+                    <br><br>
+                    <label for="phone" class="size">Số điện thoại:</label>
+                    <input id="phone" class="inp" type="text" placeholder="Số điện thoại">
+                    <br><br>
+                    <label for="email" class="size">Thông tin liên hệ:</label>
+                    <input id="email" class="inp" type="email" placeholder="Địa chỉ email">
+                    <br><br>
+                    <input type="submit" class="submit" value="Lưu thông tin chi tiết">
+                </form>
+            </div>
+
+            <!-- Tab Content for Change Password -->
+            <div id="doimatkhau" class="tab-content">
+                <h2>Đổi mật khẩu</h2>
+                <form id="change-password-form">
+                    <label for="old-password" class="size">Mật khẩu cũ:</label>
+                    <input id="old-password" class="inp" type="password" placeholder="*">
+                    <br><br>
+                    <label for="new-password" class="size">Mật khẩu mới:</label>
+                    <input id="new-password" class="inp" type="password" placeholder="*">
+                    <br><br>
+                    <label for="confirm-password" class="size">Xác nhận mật khẩu mới:</label>
+                    <input id="confirm-password" class="inp" type="password" placeholder="*">
+                    <br><br>
+                    <input type="submit" class="submit" value="Đổi mật khẩu">
+                    <a href="#" id="forgot-password" style="font-size: 14px; color: #3498db; text-decoration: none;">Quên mật khẩu?</a>
+                </form>
+                <p id="error-message" style="color: red; display: none;"></p> <!-- Thông báo lỗi -->
+            </div>
+        </article>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgotPasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Quên mật khẩu</h2>
+            <form id="forgot-password-form">
+                <label for="forgot-email" class="size">Nhập địa chỉ email của bạn:</label>
+                <input id="forgot-email" class="inp" type="email" placeholder="Email">
+                <br><br>
+                <input type="submit" class="submit" value="Gửi yêu cầu">
+            </form>
+            <p id="forgot-password-message" style="color: red; display: none;"></p>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        CÔNG TY CỔ PHẦN LOUISA<br>
+        Địa chỉ: 189 Hai Bà Trưng, Hà Nội<br>
+        Mã số doanh nghiệp: 0313175103 | Ngày cấp: 23/03/2015 | Nơi cấp: Tp. HN<br>
+        Hotline: 1900 252 538 | Email: customers@Louisa.vn
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active-tab'));
+
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => item.classList.remove('active'));
+
+            const selectedTab = document.getElementById(tabName);
+            selectedTab.classList.add('active-tab');
+
+            const selectedItem = document.querySelector(`[onclick="showTab('${tabName}')"]`);
+            selectedItem.classList.add('active');
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Lấy thông tin người dùng từ localStorage và hiển thị
+            const user = JSON.parse(localStorage.getItem('user'));
+
+            if (user) {
+                // Hiển thị thông tin người dùng vào các ô nhập liệu
+                document.getElementById('first-name').value = user.firstName || '';
+                document.getElementById('last-name').value = user.lastName || '';
+                document.getElementById('dob').value = user.dob || '';
+                document.getElementById('gender').value = user.gender || 'male';
+                document.getElementById('address').value = user.address || '';
+                document.getElementById('phone').value = user.phone || '';
+                document.getElementById('email').value = user.email || '';
+            }
+
+            // Lắng nghe sự kiện khi người dùng thay đổi thông tin cá nhân và lưu vào localStorage
+            document.getElementById('personal-info-form').addEventListener('submit', function(event) {
+                event.preventDefault(); // Ngừng hành động mặc định của form (submit)
+
+                // Lấy giá trị các trường nhập liệu
+                const firstName = document.getElementById('first-name').value;
+                const lastName = document.getElementById('last-name').value;
+                const dob = document.getElementById('dob').value;
+                const gender = document.getElementById('gender').value;
+                const address = document.getElementById('address').value;
+                const phone = document.getElementById('phone').value;
+                const email = document.getElementById('email').value;
+
+                // Lấy phần tử để hiển thị thông báo lỗi
+                var messageElement = document.getElementById('message');
+                messageElement.style.color = "red"; // Màu thông báo lỗi
+
+                // Kiểm tra tên (không có số hoặc ký tự đặc biệt)
+                var nameRegex = /^[A-Za-z\s]+$/;
+                if (!nameRegex.test(firstName)) {
+                    messageElement.innerText = "Tên không hợp lệ. Tên chỉ được chứa chữ cái và khoảng trắng!";
+                    return;
+                }
+
+                if (!nameRegex.test(lastName)) {
+                    messageElement.innerText = "Họ không hợp lệ. Họ chỉ được chứa chữ cái và khoảng trắng!";
+                    return;
+                }
+
+                // Kiểm tra số điện thoại (10 chữ số)
+                var phoneRegex = /^[0-9]{10}$/;
+                if (!phoneRegex.test(phone)) {
+                    messageElement.innerText = "Số điện thoại không hợp lệ. Số điện thoại phải có 10 chữ số!";
+                    return;
+                }
+
+                // Kiểm tra email (đúng định dạng email)
+                var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                if (!emailRegex.test(email)) {
+                    messageElement.innerText = "Email không hợp lệ!";
+                    return;
+                }
+
+                // Nếu tất cả đều hợp lệ, lưu thông tin vào localStorage và hiển thị thông báo thành công
+                const updatedUser = {
+                    firstName,
+                    lastName,
+                    dob,
+                    gender,
+                    address,
+                    phone,
+                    email
+                };
+
+                localStorage.setItem('user', JSON.stringify(updatedUser));
+
+                // Cập nhật lại thông tin cá nhân trong form
+                document.getElementById('first-name').value = updatedUser.firstName;
+                document.getElementById('last-name').value = updatedUser.lastName;
+                document.getElementById('dob').value = updatedUser.dob;
+                document.getElementById('gender').value = updatedUser.gender;
+                document.getElementById('address').value = updatedUser.address;
+                document.getElementById('phone').value = updatedUser.phone;
+                document.getElementById('email').value = updatedUser.email;
+
+                // Thông báo thành công
+                messageElement.style.color = "green"; // Màu thông báo thành công
+                messageElement.innerText = "Thông tin cá nhân đã được cập nhật thành công!";
+            });
+
+        });
+        // Modal "Quên mật khẩu"
+        var modal = document.getElementById("forgotPasswordModal");
+        var closeBtn = document.getElementsByClassName("close")[0];
+
+        // Khi click vào "Quên mật khẩu"
+        document.getElementById("forgot-password").addEventListener("click", function(event) {
+            event.preventDefault();
+            modal.style.display = "block";
+        });
+
+        // Khi click vào nút đóng modal
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Khi click bên ngoài modal để đóng
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Xử lý quên mật khẩu
+        document.getElementById("forgot-password-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById("forgot-email").value;
+            const user = JSON.parse(localStorage.getItem('user'));
+            const errorMessage = document.getElementById("forgot-password-message");
+
+            if (!email) {
+                errorMessage.textContent = "Vui lòng nhập email!";
+                errorMessage.style.display = "block";
+                return;
+            }
+
+            if (!user || user.email !== email) {
+                errorMessage.textContent = "Email không khớp với thông tin lưu trữ!";
+                errorMessage.style.display = "block";
+                return;
+            }
+
+            // Giả lập gửi email xác nhận
+            alert("Một email xác nhận đã được gửi đến " + email);
+
+            // Ẩn thông báo lỗi nếu thành công
+            errorMessage.style.display = "none";
+            modal.style.display = "none";
+        });
+
+        // Hàm xử lý đổi mật khẩu
+        document.getElementById("change-password-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Ngừng hành động mặc định của form (submit)
+
+            const oldPassword = document.getElementById("old-password").value;
+            const newPassword = document.getElementById("new-password").value;
+            const confirmPassword = document.getElementById("confirm-password").value;
+            const errorMessage = document.getElementById("error-message");
+
+            // Kiểm tra mật khẩu cũ
+            const storedUser = JSON.parse(localStorage.getItem('user'));
+            if (!storedUser || storedUser.password !== oldPassword) {
+                errorMessage.textContent = "Mật khẩu cũ không chính xác!";
+                errorMessage.style.display = "block";
+                return;
+            }
+
+            if (!oldPassword || !newPassword || !confirmPassword) {
+                errorMessage.textContent = "Vui lòng điền đầy đủ các trường!";
+                errorMessage.style.display = "block";
+                return;
+            }
+
+            if (newPassword !== confirmPassword) {
+                errorMessage.textContent = "Mật khẩu mới và mật khẩu xác nhận không khớp!";
+                errorMessage.style.display = "block";
+                return;
+            }
+
+            if (newPassword.length < 6) {
+                errorMessage.textContent = "Mật khẩu mới phải có ít nhất 6 ký tự!";
+                errorMessage.style.display = "block";
+                return;
+            }
+
+            storedUser.password = newPassword;
+            localStorage.setItem('user', JSON.stringify(storedUser));
+
+            alert("Mật khẩu của bạn đã được thay đổi thành công!");
+            errorMessage.style.display = "none";
+            document.getElementById("change-password-form").reset();
+        });
+    </script>
+</body>
+</html>
